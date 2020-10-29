@@ -16,7 +16,7 @@ extension UIView {
         leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
     }
-   
+    
 }
 
 extension UIViewController {
@@ -29,5 +29,15 @@ extension UIViewController {
          navigationController?.pushViewController(vc, animated: true)
     }
     
+    func setupBgColor(to view : UIView, color: UIColor){
+        view.backgroundColor = color
+       
+    }
     
+    func setupTableview(to view: UIView, listName: UITableView, cellName: String){
+        view.addSubview(listName)
+        listName.rowHeight = 100
+        listName.register(UINib(nibName: cellName, bundle: nil), forCellReuseIdentifier: cellName)
+        listName.pinToView(to: view)
+    }
 }

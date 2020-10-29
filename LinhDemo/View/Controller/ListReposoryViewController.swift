@@ -9,23 +9,18 @@
 import UIKit
 
 class ListReposoryViewController: UIViewController {
-    
     var listView = UITableView()
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNav()
-        setupTableview()
+        configTableview()
+        setupTableview(to: view, listName: listView, cellName: "CustomCell")
     }
     
-    func setupTableview(){
-        view.addSubview(listView)
+    func configTableview(){
         listView.dataSource = self
         listView.delegate = self
-        listView.rowHeight = 135
-        listView.pinToView(to: view)
-        listView.register(UINib(nibName: "CustomCell", bundle: nil), forCellReuseIdentifier: "CustomCell")
     }
-    
 }
 
 extension ListReposoryViewController: UITableViewDataSource{
