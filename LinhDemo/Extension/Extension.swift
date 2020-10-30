@@ -20,6 +20,7 @@ extension UIView {
 }
 
 extension UIViewController {
+
     func setupNav(){
         navigationController?.navigationBar.isHidden = false
     }
@@ -36,8 +37,22 @@ extension UIViewController {
     
     func setupTableview(to view: UIView, listName: UITableView, cellName: String){
         view.addSubview(listName)
-        listName.rowHeight = 100
         listName.register(UINib(nibName: cellName, bundle: nil), forCellReuseIdentifier: cellName)
         listName.pinToView(to: view)
+    }
+   
+
+ 
+}
+extension ListReposoryViewController {
+    func loadImages(dataImage: String) {
+        let url = URL(string: dataImage)
+            DispatchQueue.global().async { [weak self] in
+                if let imageData = try? Data(contentsOf: url!) {
+                    if let image = UIImage(data: imageData) {
+                       self?.img = image
+                    }
+                }
+            }
     }
 }

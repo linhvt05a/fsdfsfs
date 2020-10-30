@@ -1,13 +1,14 @@
 //
 //  ErrorModel.swift
-//  HaloApp
+//  LinhDemo
 //
-//  Created by admin on 10/20/20.
+//  Created by admin on 10/29/20.
+//  Copyright © 2020 Hahalolo. All rights reserved.
 //
 
 import Foundation
 
-struct ErrorModel: Codable {
-    let message: String?
-    let status_code: Int?
+struct ErrorModel: Codable, LocalizedError{
+    let reason: String
+    var errorDescription: String? { return reason }
 }
