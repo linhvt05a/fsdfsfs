@@ -49,6 +49,7 @@ extension ListReposoryViewController: UITableViewDataSource{
 extension ListReposoryViewController:UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let listdetail = ListDetailViewController()
+        listdetail.dataDetail = listViewModel.listModel
             navigateVC(controller: listdetail)
     }
     

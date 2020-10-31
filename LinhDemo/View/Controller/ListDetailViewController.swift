@@ -10,12 +10,14 @@ import UIKit
 
 class ListDetailViewController: UIViewController {
     var listDetail  = UITableView()
+    var dataDetail = [ItemModel]()
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNav()
         setupBgColor(to: view, color: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))
         configTableview()
         setupTableview(to: view, listName: listDetail, cellName: "CustomDetailCell")
+        print(dataDetail)
     }
 
     func configTableview(){
